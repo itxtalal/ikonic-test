@@ -22,6 +22,8 @@ class UserRoute implements IRoute {
     // Log in an existing user
     this.router.post(`${this.path}/login`, this.controller.login);
 
+    this.router.post(`${this.path}/me`, this.controller.checkToken);
+
     // Log out a user (optional)
     this.router.post(`${this.path}/logout`, this.controller.logout);
 

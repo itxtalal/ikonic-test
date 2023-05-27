@@ -7,9 +7,45 @@ import {
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import { SECRET_KEY } from '../config';
+import prisma from '../config/prisma';
 
 export default class UserController {
   public userService: UserService = new UserService();
+
+  public checkToken = async (
+    request: Request,
+    response: Response,
+    next: NextFunction
+  ) => {
+    try {
+      const token = request.headers.authorization?.split(' ')[1];
+      if (token) {
+        const decodedToken = jwt.verify(token, SECRET_KEY!);
+        const user = await prisma.user.findUnique({
+          where: {
+            id: (decodedToken as any).id,
+          },
+        });
+        if (user) {
+          response.status(200).json({
+            message: 'User authenticated',
+            user: {
+              id: user.id,
+              email: user.email,
+              name: user.name,
+              role: user.role,
+            },
+          });
+        } else {
+          response.status(401).json({ message: 'UnAuthorized' });
+        }
+      } else {
+        response.status(401).json({ message: 'UnAuthorized' });
+      }
+    } catch (error) {
+      next(error);
+    }
+  };
 
   public register = async (
     request: Request,
@@ -18,7 +54,30 @@ export default class UserController {
   ) => {
     try {
       const userData: CreateUserRequest = request.body;
+
+      const userExists = await prisma.user.findUnique({
+        where: {
+          email: userData.email,
+        },
+      });
+
+      if (userExists) {
+        response.status(409).json({ message: 'User already exists' });
+        return;
+      }
+
       const user = await this.userService.register(userData);
+
+      const token = jwt.sign(
+        {
+          id: user.id,
+          email: user.email,
+          role: user.role,
+        },
+        SECRET_KEY!,
+        { expiresIn: '1h' }
+      );
+
       response.status(201).json({
         message: 'User created successfully',
         user: {
@@ -27,6 +86,7 @@ export default class UserController {
           name: user.name,
           role: user.role,
         },
+        token,
       });
     } catch (error) {
       next(error);

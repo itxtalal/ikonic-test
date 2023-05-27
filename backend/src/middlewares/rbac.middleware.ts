@@ -11,8 +11,6 @@ export const authorizeRole =
     // Assuming role information is stored in the decoded JWT payload
     const userRole = request.user.role;
 
-    console.log('userRole', userRole);
-
     if (!roles.includes(userRole)) {
       return response.status(403).json({ message: 'Forbidden' });
     }
