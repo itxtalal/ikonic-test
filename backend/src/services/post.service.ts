@@ -18,6 +18,18 @@ export default class PostService {
     });
   };
 
+  public findAllPosts = async (): Promise<Post[]> => {
+    return prisma.post.findMany({
+      include: {
+        author: {
+          select: {
+            name: true,
+          },
+        },
+      },
+    });
+  };
+
   public findPostById = async (id: number): Promise<Post | null> => {
     return prisma.post.findUnique({
       where: {

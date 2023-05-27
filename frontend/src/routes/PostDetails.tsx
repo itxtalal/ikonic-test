@@ -27,7 +27,11 @@ const PostDetails = () => {
   }, [navigate])
 
   const getPost = async () => {
-    const res = await axios.get('/post/' + id)
+    const res = await axios.get('/post/' + id, {
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem('token')
+      }
+    })
 
     if (res.status === 200) {
       console.log(res.data)
@@ -41,7 +45,11 @@ const PostDetails = () => {
 
   const deleteHandler = async () => {
     try {
-      const res = await axios.delete('/post/' + id)
+      const res = await axios.delete('/post/' + id, {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('token')
+        }
+      })
 
       if (res.status === 200) {
         console.log('Post deleted successfully')
@@ -53,7 +61,7 @@ const PostDetails = () => {
   }
 
   return (
-    <div className="flex flex-col min-h-screen w-screen px-6">
+    <div className="flex flex-col min-h-screen  h-full w-screen px-6">
       <Header />
 
       <div className="py-12">

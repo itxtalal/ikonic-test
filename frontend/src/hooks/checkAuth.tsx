@@ -9,7 +9,15 @@ const checkAuthToken = () => {
 
   const fetchUserData = async (token: string) => {
     try {
-      const res = await axios.post('/user/me', { token })
+      const res = await axios.post(
+        '/user/me',
+        { token },
+        {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('token')
+          }
+        }
+      )
 
       if (res.status === 200) {
         const { user } = res.data

@@ -15,7 +15,7 @@ const Header = () => {
   }
 
   return (
-    <div className="flex px-4 py-3 items-center">
+    <div className="flex px-4 py-3 items-center my-4">
       <Link
         to="/"
         className="flex items-center text-3xl font-bold text-primary-600 "

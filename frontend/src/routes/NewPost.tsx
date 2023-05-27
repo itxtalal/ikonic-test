@@ -23,7 +23,7 @@ const NewPost = () => {
   }, [navigate])
 
   return (
-    <div className="flex flex-col gap-12 min-h-screen w-screen mx-6">
+    <div className="flex flex-col gap-12 min-h-screen  h-full w-screen mx-6">
       <Header />
 
       <CreatePost />

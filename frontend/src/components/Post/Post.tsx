@@ -26,6 +26,10 @@ const Post = ({ post, ownPost }: { post: PostType; ownPost: boolean }) => {
       <p className="text-sm font-semibold">
         Author Name: {post.author?.name ? post.author?.name : 'N/A'}
       </p>
+
+      <p className="text-sm font-semibold">
+        Published: {post.published ? 'Yes' : 'No'}
+      </p>
     </Link>
   )
 }

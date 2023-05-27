@@ -22,8 +22,10 @@ const Home = () => {
     }
   }, [navigate])
 
+  if (user.id === '') return <div>Loading...</div>
+
   return (
-    <div className="flex flex-col gap-12 min-h-screen w-screen mx-6">
+    <div className="flex flex-col gap-12 min-h-screen h-full w-screen mx-6">
       <Header />
       <Posts />
     </div>

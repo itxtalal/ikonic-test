@@ -22,6 +22,19 @@ export default class UserController {
     }
   };
 
+  public getAllPosts = async (
+    req: AuthenticatedUserRequest,
+    res: Response,
+    next: NextFunction
+  ) => {
+    try {
+      const posts = await this.postService.findAllPosts();
+      res.status(200).json({ posts: posts });
+    } catch (error) {
+      next(error);
+    }
+  };
+
   public getPostsByUser = async (
     req: AuthenticatedUserRequest,
     res: Response,

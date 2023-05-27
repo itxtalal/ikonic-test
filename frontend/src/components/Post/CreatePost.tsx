@@ -12,11 +12,19 @@ const CreatePost = () => {
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    const res = await axios.post('/post/', {
-      title,
-      content,
-      published
-    })
+    const res = await axios.post(
+      '/post/',
+      {
+        title,
+        content,
+        published
+      },
+      {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('token')
+        }
+      }
+    )
 
     if (res.status === 201) {
       console.log('Post created successfully')

@@ -19,11 +19,19 @@ const EditPost = ({
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    const res = await axios.put('/post/' + post.id, {
-      title,
-      content,
-      published
-    })
+    const res = await axios.put(
+      '/post/' + post.id,
+      {
+        title,
+        content,
+        published
+      },
+      {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('token')
+        }
+      }
+    )
 
     if (res.status === 200) {
       console.log('Post updated successfully')
