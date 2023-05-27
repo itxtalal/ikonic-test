@@ -35,6 +35,10 @@ export default class App {
 
   private initializeRoutes(routes: IRoute[]): void {
     routes.forEach((route) => {
+      this.app.get('/', (req, res) => {
+        res.send('API running ✔️');
+      });
+
       this.app.use('/api/v1', route.router);
     });
   }

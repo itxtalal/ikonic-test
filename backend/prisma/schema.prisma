@@ -11,11 +11,12 @@ datasource db {
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-  role  String  @default("user")
-  posts Post[]  @relation("UserPosts")
+  id       Int     @id @default(autoincrement())
+  email    String  @unique
+  password String
+  name     String?
+  role     String  @default("user")
+  posts    Post[]  @relation("UserPosts")
 }
 
 model Post {
