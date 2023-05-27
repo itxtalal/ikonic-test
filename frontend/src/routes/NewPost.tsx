@@ -4,9 +4,9 @@ import Header from '../components/Header'
 import { useAppSelector } from '../redux/hooks'
 import { userSelector } from '../redux/slices/userSlice'
 import checkAuthToken from '../hooks/checkAuth'
-import Posts from '../components/Post/Posts'
+import CreatePost from '../components/Post/CreatePost'
 
-const Home = () => {
+const NewPost = () => {
   const user = useAppSelector(userSelector)
 
   checkAuthToken()
@@ -25,9 +25,10 @@ const Home = () => {
   return (
     <div className="flex flex-col gap-12 min-h-screen w-screen mx-6">
       <Header />
-      <Posts />
+
+      <CreatePost />
     </div>
   )
 }
 
-export default Home
+export default NewPost

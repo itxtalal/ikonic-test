@@ -6,6 +6,8 @@ import Root from './routes/root'
 import Login from './routes/Login'
 import Register from './routes/Register'
 import { StoreProvider } from './redux/store'
+import PostDetails from './routes/PostDetails'
+import NewPost from './routes/NewPost'
 
 const router = createBrowserRouter([
   {
@@ -19,6 +21,14 @@ const router = createBrowserRouter([
   {
     path: '/register',
     element: <Register />
+  },
+  {
+    path: '/post/:id',
+    element: <PostDetails />
+  },
+  {
+    path: '/newPost',
+    element: <NewPost />
   }
 ])
 

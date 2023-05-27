@@ -9,13 +9,13 @@ import { Post } from '@prisma/client';
 export default class UserController {
   public postService: PostService = new PostService();
 
-  public getAllPosts = async (
+  public getAllPublishedPosts = async (
     req: AuthenticatedUserRequest,
     res: Response,
     next: NextFunction
   ) => {
     try {
-      const posts = await this.postService.findAllPosts();
+      const posts = await this.postService.findAllPublishedPosts();
       res.status(200).json({ posts: posts });
     } catch (error) {
       next(error);

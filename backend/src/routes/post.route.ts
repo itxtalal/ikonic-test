@@ -18,9 +18,9 @@ export class PostRouter {
   private initializeRoutes() {
     // Get all posts
     this.router.get(
-      `${this.path}/all`,
+      `${this.path}/allPublishedPosts`,
       authenticateJWT,
-      this.controller.getAllPosts
+      this.controller.getAllPublishedPosts
     );
 
     // Get all posts by user

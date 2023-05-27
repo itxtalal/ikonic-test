@@ -3,14 +3,32 @@ import prisma from '../config/prisma';
 import { CreatePostRequest } from '../interfaces/post.interface';
 
 export default class PostService {
-  public findAllPosts = async (): Promise<Post[]> => {
-    return prisma.post.findMany();
+  public findAllPublishedPosts = async (): Promise<Post[]> => {
+    return prisma.post.findMany({
+      where: {
+        published: true,
+      },
+      include: {
+        author: {
+          select: {
+            name: true,
+          },
+        },
+      },
+    });
   };
 
   public findPostById = async (id: number): Promise<Post | null> => {
     return prisma.post.findUnique({
       where: {
         id,
+      },
+      include: {
+        author: {
+          select: {
+            name: true,
+          },
+        },
       },
     });
   };
@@ -19,6 +37,13 @@ export default class PostService {
     return prisma.post.findMany({
       where: {
         authorId: user.id,
+      },
+      include: {
+        author: {
+          select: {
+            name: true,
+          },
+        },
       },
     });
   };
