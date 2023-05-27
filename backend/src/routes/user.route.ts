@@ -6,10 +6,12 @@ import { authorizeRole } from '../middlewares/rbac.middleware';
 
 class UserRoute implements IRoute {
   public path: string = '/user';
-  public router: Router = Router();
-  public controller: UserController = new UserController();
+  public router: Router;
+  public controller: UserController;
 
   constructor() {
+    this.router = Router();
+    this.controller = new UserController();
     this.initializeRoutes();
   }
 
