@@ -12,7 +12,10 @@ class TestRoute implements IRoute {
   }
 
   private initializeRoutes() {
-    this.router.get(this.path, this.controller.getHello);
+    // this.router.get(this.path, this.controller.getHello);
+
+    this.router.get(`${this.path}`, this.controller.createUser);
+    this.router.get(`${this.path}/:id`, this.controller.getUserById);
   }
 }
 
