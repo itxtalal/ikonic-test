@@ -4,9 +4,10 @@ import { useAppSelector } from '../redux/hooks'
 import axios from '../config/axios'
 import Post, { PostType } from '../components/Post/Post'
 import { useNavigate, useParams } from 'react-router-dom'
-import Header from '../components/Header'
+import Header from '../layout/Header'
 import checkAuthToken from '../hooks/checkAuth'
 import EditPost from '../components/Post/EditPost'
+import Layout from '../layout/Layout'
 
 const PostDetails = () => {
   const user = useAppSelector(userSelector)
@@ -61,9 +62,7 @@ const PostDetails = () => {
   }
 
   return (
-    <div className="flex flex-col min-h-screen  h-full w-screen px-6">
-      <Header />
-
+    <Layout>
       <div className="py-12">
         <h1 className="text-4xl font-bold">Post</h1>
 
@@ -124,7 +123,7 @@ const PostDetails = () => {
           </>
         ) : null}
       </div>
-    </div>
+    </Layout>
   )
 }
 

@@ -1,7 +1,6 @@
 import { PostType } from './Post'
 import { useState } from 'react'
 import axios from '../../config/axios'
-import { useNavigate } from 'react-router-dom'
 
 const EditPost = ({
   post,

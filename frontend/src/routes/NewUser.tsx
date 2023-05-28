@@ -1,20 +1,13 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Header from '../layout/Header'
-import { useAppSelector } from '../redux/hooks'
-import { userSelector } from '../redux/slices/userSlice'
 import checkAuthToken from '../hooks/checkAuth'
-import CreatePost from '../components/Post/CreatePost'
-import Layout from '../layout/Layout'
+import CreateUser from '../components/User/CreateUser'
 
-const NewPost = () => {
-  const user = useAppSelector(userSelector)
-
+const NewUser = () => {
   checkAuthToken()
 
   const navigate = useNavigate()
-
-  console.log(user)
 
   useEffect(() => {
     const token = localStorage.getItem('token')
@@ -24,10 +17,12 @@ const NewPost = () => {
   }, [navigate])
 
   return (
-    <Layout>
-      <CreatePost />
-    </Layout>
+    <div className="flex flex-col gap-12 min-h-screen  h-full w-screen mx-6">
+      <Header />
+
+      <CreateUser />
+    </div>
   )
 }
 
-export default NewPost
+export default NewUser

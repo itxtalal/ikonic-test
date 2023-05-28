@@ -187,8 +187,14 @@ export default class UserController {
     next: NextFunction
   ) => {
     try {
-      const userData: CreateUserRequest = request.body;
-      const newUser = await this.userService.createUser(userData);
+      const { name, email, password, role } = request.body;
+      const newUser = await this.userService.createUser({
+        name,
+        email,
+        password,
+        role,
+      });
+
       response.status(201).json({
         message: 'User created successfully',
         user: {

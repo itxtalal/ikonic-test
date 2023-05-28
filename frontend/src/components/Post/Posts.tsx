@@ -34,7 +34,6 @@ const Posts = () => {
       }
     })
     if (res.status === 200) {
-      console.log(res.data)
       setPosts(() => res.data.posts)
       setFilteredPosts(() => res.data.posts)
     }
@@ -101,6 +100,7 @@ const Posts = () => {
       <div className="flex flex-col gap-3">
         {filteredPosts.map((post: PostType) => (
           <Post
+            key={post.id}
             post={post}
             ownPost={Number(user.id) === Number(post.authorId)}
           />

@@ -16,7 +16,6 @@ const Post = ({ post, ownPost }: { post: PostType; ownPost: boolean }) => {
   return (
     <Link
       to={`/post/${post.id}`}
-      key={post.id}
       className={`flex flex-col gap-4 border-2 ${
         ownPost ? 'border-primary-600' : 'border-gray-200'
       } rounded-md p-2 my-2`}

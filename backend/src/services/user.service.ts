@@ -50,8 +50,15 @@ export default class UserService {
   };
 
   public createUser = async (userData: CreateUserRequest): Promise<User> => {
+    const password = userData.password;
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
     return prisma.user.create({
-      data: userData,
+      data: {
+        ...userData,
+        password: hashedPassword,
+      },
     });
   };
 
@@ -68,10 +75,18 @@ export default class UserService {
   };
 
   public deleteUser = async (id: number): Promise<User | null> => {
-    return prisma.user.delete({
+    // Delete associated posts
+    await prisma.post.deleteMany({
+      where: {
+        authorId: id,
+      },
+    });
+    const deletedUser = await prisma.user.delete({
       where: {
         id,
       },
     });
+
+    return deletedUser;
   };
 }

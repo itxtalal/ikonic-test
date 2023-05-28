@@ -30,6 +30,21 @@ export default class PostService {
     });
   };
 
+  public findPostsBySomeUser = async (id: number): Promise<Post[]> => {
+    return prisma.post.findMany({
+      where: {
+        authorId: id,
+      },
+      include: {
+        author: {
+          select: {
+            name: true,
+          },
+        },
+      },
+    });
+  };
+
   public findPostById = async (id: number): Promise<Post | null> => {
     return prisma.post.findUnique({
       where: {

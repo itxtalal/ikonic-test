@@ -8,10 +8,26 @@ import Register from './routes/Register'
 import { StoreProvider } from './redux/store'
 import PostDetails from './routes/PostDetails'
 import NewPost from './routes/NewPost'
+import UserDetails from './routes/UserDetails'
+import NewUser from './routes/NewUser'
+import Layout from './layout/Layout'
+import UserDetailsPage from './routes/UserDetailsPage'
 
 const router = createBrowserRouter([
   {
     path: '/',
+    element: <Root />
+  },
+  {
+    path: '/posts',
+    element: <Root />
+  },
+  {
+    path: '/users',
+    element: <Root />
+  },
+  {
+    path: '/profile',
     element: <Root />
   },
   {
@@ -29,6 +45,14 @@ const router = createBrowserRouter([
   {
     path: '/newPost',
     element: <NewPost />
+  },
+  {
+    path: '/user/:id',
+    element: <UserDetailsPage />
+  },
+  {
+    path: '/newUser',
+    element: <NewUser />
   }
 ])
 

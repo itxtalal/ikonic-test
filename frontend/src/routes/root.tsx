@@ -1,13 +1,17 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Header from '../components/Header'
 import { useAppSelector } from '../redux/hooks'
 import { userSelector } from '../redux/slices/userSlice'
 import checkAuthToken from '../hooks/checkAuth'
 import Posts from '../components/Post/Posts'
+import Users from '../components/User/Users'
+import Layout from '../layout/Layout'
+import { useLocation } from 'react-router-dom'
+import Profile from '../components/Profile'
 
 const Home = () => {
   const user = useAppSelector(userSelector)
+  const { pathname } = useLocation()
 
   checkAuthToken()
 
@@ -25,10 +29,17 @@ const Home = () => {
   if (user.id === '') return <div>Loading...</div>
 
   return (
-    <div className="flex flex-col gap-12 min-h-screen h-full w-screen mx-6">
-      <Header />
-      <Posts />
-    </div>
+    <Layout>
+      {pathname === '/posts' ? <Posts /> : null}
+
+      {pathname === '/users' && user.role === 'admin' ? (
+        <>
+          <Users />
+        </>
+      ) : null}
+
+      {pathname === '/profile' ? <Profile /> : null}
+    </Layout>
   )
 }
 

@@ -31,9 +31,16 @@ export class PostRouter {
       this.controller.getAllPosts
     );
 
-    // Get all posts by user
+    // Get all posts by logged in user
     this.router.get(
       `${this.path}/`,
+      authenticateJWT,
+      this.controller.getPostsByLoggedInUser
+    );
+
+    // Get all posts by a user
+    this.router.get(
+      `${this.path}/user/:id`,
       authenticateJWT,
       this.controller.getPostsByUser
     );

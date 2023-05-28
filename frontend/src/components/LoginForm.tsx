@@ -31,7 +31,6 @@ function LoginForm() {
         const { token } = res.data
         localStorage.setItem('token', token)
         dispatch(updateUser(res.data.user))
-
         navigate('/')
       }
     } catch (err: any) {

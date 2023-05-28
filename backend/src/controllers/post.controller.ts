@@ -41,6 +41,20 @@ export default class UserController {
     next: NextFunction
   ) => {
     try {
+      const id = req.params.id;
+      const posts = await this.postService.findPostsBySomeUser(Number(id));
+      res.status(200).json({ posts: posts });
+    } catch (error) {
+      next(error);
+    }
+  };
+
+  public getPostsByLoggedInUser = async (
+    req: AuthenticatedUserRequest,
+    res: Response,
+    next: NextFunction
+  ) => {
+    try {
       const user = req.user;
       const posts = await this.postService.findPostsByUser(user);
       res.status(200).json({ posts: posts });
