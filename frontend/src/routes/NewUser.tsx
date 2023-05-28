@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Header from '../layout/Header'
 import checkAuthToken from '../hooks/checkAuth'
 import CreateUser from '../components/User/CreateUser'
+import Layout from '../layout/Layout'
+import { useAppSelector } from '../redux/hooks'
+import { userSelector } from '../redux/slices/userSlice'
 
 const NewUser = () => {
   checkAuthToken()
+  const user = useAppSelector(userSelector)
 
   const navigate = useNavigate()
 
@@ -14,14 +17,16 @@ const NewUser = () => {
     if (!token) {
       navigate('/login')
     }
+
+    if (user.role !== 'admin') {
+      navigate('/')
+    }
   }, [navigate])
 
   return (
-    <div className="flex flex-col gap-12 min-h-screen  h-full w-screen mx-6">
-      <Header />
-
+    <Layout>
       <CreateUser />
-    </div>
+    </Layout>
   )
 }
 

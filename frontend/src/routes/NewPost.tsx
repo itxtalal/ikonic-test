@@ -14,8 +14,6 @@ const NewPost = () => {
 
   const navigate = useNavigate()
 
-  console.log(user)
-
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (!token) {

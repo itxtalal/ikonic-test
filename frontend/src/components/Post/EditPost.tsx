@@ -37,8 +37,6 @@ const EditPost = ({
       setPost((prev) => ({ ...prev, ...res.data.post }))
       setIsEditing(false)
     }
-
-    console.log(res)
   }
 
   return (

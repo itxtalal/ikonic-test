@@ -181,6 +181,19 @@ export default class UserController {
     }
   };
 
+  public getOnlyUserUsers = async (
+    request: AuthenticatedUserRequest,
+    response: Response,
+    next: NextFunction
+  ) => {
+    try {
+      const users = await this.userService.getOnlyUserUsers();
+      response.status(200).json(users);
+    } catch (error) {
+      next(error);
+    }
+  };
+
   public createUser = async (
     request: Request,
     response: Response,

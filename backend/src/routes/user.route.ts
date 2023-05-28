@@ -35,6 +35,13 @@ class UserRoute implements IRoute {
       this.controller.getAllUsers
     );
 
+    // get all users by role
+    this.router.get(
+      `${this.path}/user`,
+      authenticateJWT,
+      this.controller.getOnlyUserUsers
+    );
+
     // create admin user
     this.router.post(
       `${this.path}/admin`,

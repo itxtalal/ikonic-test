@@ -16,8 +16,6 @@ const Profile = () => {
 
   const navigate = useNavigate()
 
-  console.log(user)
-
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (!token) {
@@ -33,7 +31,6 @@ const Profile = () => {
     })
 
     if (res.status === 200) {
-      console.log(res.data)
       setUserPosts(() => res.data.posts)
     }
   }
@@ -49,7 +46,12 @@ const Profile = () => {
       <UserDetails id1={Number(user.id)} />
 
       <div className="flex flex-col gap-6">
-        <h2 className="text-3xl font-bold">Posts by User</h2>
+        <div className="flex">
+          <h2 className="text-3xl font-bold">Posts by User</h2>
+          <span className="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full ">
+            {userPosts.length}
+          </span>
+        </div>
         {userPosts.map((post: PostType) => (
           <Post key={post.id} post={post} ownPost={true} />
         ))}

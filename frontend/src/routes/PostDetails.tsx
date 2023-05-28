@@ -35,7 +35,6 @@ const PostDetails = () => {
     })
 
     if (res.status === 200) {
-      console.log(res.data)
       setPost(() => res.data.post)
     }
   }

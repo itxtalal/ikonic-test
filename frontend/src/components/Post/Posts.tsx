@@ -69,7 +69,12 @@ const Posts = () => {
       >
         Create a New Post
       </Link>
-      <h1 className="text-4xl font-bold">Posts</h1>
+      <div className="flex">
+        <h1 className="text-4xl font-bold">Posts</h1>
+        <span className="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full ">
+          {filteredPosts?.length}
+        </span>
+      </div>
 
       {user.role === 'admin' ? (
         <div className="my-4 w-1/4 ml-auto">

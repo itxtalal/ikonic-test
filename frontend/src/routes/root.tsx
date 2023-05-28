@@ -17,8 +17,6 @@ const Home = () => {
 
   const navigate = useNavigate()
 
-  console.log(user)
-
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (!token) {
@@ -32,7 +30,7 @@ const Home = () => {
     <Layout>
       {pathname === '/posts' ? <Posts /> : null}
 
-      {pathname === '/users' && user.role === 'admin' ? (
+      {pathname === '/users' ? (
         <>
           <Users />
         </>

@@ -32,8 +32,6 @@ const CreateUser = () => {
       console.log('User updated successfully')
       navigate(`/user/${res.data.user.id}`)
     }
-
-    console.log(res)
   }
 
   return (

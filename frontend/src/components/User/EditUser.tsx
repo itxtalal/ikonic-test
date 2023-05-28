@@ -37,8 +37,6 @@ const EditUser = ({
       setUser((prev) => ({ ...prev, ...res.data.user }))
       setIsEditing(false)
     }
-
-    console.log(res)
   }
 
   return (

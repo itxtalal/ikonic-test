@@ -18,8 +18,6 @@ const UserDetailsPage = () => {
 
   const navigate = useNavigate()
 
-  console.log(user)
-
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (!token) {
@@ -35,7 +33,6 @@ const UserDetailsPage = () => {
     })
 
     if (res.status === 200) {
-      console.log(res.data)
       setUserPosts(() => res.data.posts)
     }
   }

@@ -8,9 +8,7 @@ import Register from './routes/Register'
 import { StoreProvider } from './redux/store'
 import PostDetails from './routes/PostDetails'
 import NewPost from './routes/NewPost'
-import UserDetails from './routes/UserDetails'
 import NewUser from './routes/NewUser'
-import Layout from './layout/Layout'
 import UserDetailsPage from './routes/UserDetailsPage'
 
 const router = createBrowserRouter([

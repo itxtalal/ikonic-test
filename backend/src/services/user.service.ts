@@ -41,6 +41,14 @@ export default class UserService {
     return prisma.user.findMany();
   };
 
+  public getOnlyUserUsers = async (): Promise<User[]> => {
+    return prisma.user.findMany({
+      where: {
+        role: 'user',
+      },
+    });
+  };
+
   public getUserById = async (id: number): Promise<User | null> => {
     return prisma.user.findUnique({
       where: {

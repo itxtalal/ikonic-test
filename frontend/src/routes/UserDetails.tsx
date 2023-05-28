@@ -36,7 +36,6 @@ const UserDetails = ({ id1 }: { id1?: number }) => {
     })
 
     if (res.status === 200) {
-      console.log(res.data)
       setUserA(() => res.data)
     }
   }
