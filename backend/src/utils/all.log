@@ -641,3 +641,4 @@ C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.
   91 });
 → 92 const deletedUser = await prisma.user.delete(
 An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+2023-05-29 21:25:25:2525 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
