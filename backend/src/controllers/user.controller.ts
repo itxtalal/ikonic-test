@@ -75,7 +75,7 @@ export default class UserController {
           role: user.role,
         },
         SECRET_KEY!,
-        { expiresIn: '1h' }
+        { expiresIn: '3h' }
       );
 
       response.status(201).json({
@@ -111,7 +111,7 @@ export default class UserController {
             role: user.role,
           },
           SECRET_KEY!,
-          { expiresIn: '1h' }
+          { expiresIn: '3h' }
         );
         response.status(200).json({
           message: 'Logged in successfully',

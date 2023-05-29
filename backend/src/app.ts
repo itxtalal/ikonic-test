@@ -5,6 +5,7 @@ import { IRoute } from './interfaces/route.interface';
 import errorMiddleware from './middlewares/error.middleware';
 import morganMiddleware from './middlewares/morgan.middleware';
 import { logger } from './utils/logger';
+import { Server, IncomingMessage, ServerResponse } from 'http';
 
 export default class App {
   public app: Application;
@@ -18,8 +19,8 @@ export default class App {
     this.initializeErrorHandling();
   }
 
-  public listen(): void {
-    this.app.listen(this.port, () => {
+  public listen(): Server<typeof IncomingMessage, typeof ServerResponse> {
+    return this.app.listen(this.port, () => {
       logger.info(
         `⚡️[server]: Server is running @ http://localhost:${this.port}`
       );

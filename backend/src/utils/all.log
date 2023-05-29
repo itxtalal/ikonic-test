@@ -1,0 +1,643 @@
+2023-05-29 19:21:00:210 [error]: [POST] /api/v1/user/register  >> StatusCode:: 500, Message:: data and salt arguments required
+2023-05-29 19:35:07:357 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 19:35:07:357 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 19:36:36:3636 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 19:36:36:3636 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 19:38:16:3816 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 19:38:17:3817 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 19:38:17:3817 [error]: [DELETE] /api/v1/user/undefined  >> StatusCode:: 500, Message:: 
+Invalid `prisma.post.deleteMany()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:87:23
+
+  84 
+  85 public deleteUser = async (id: number): Promise<User | null> => {
+  86   // Delete associated posts
+→ 87   await prisma.post.deleteMany({
+         where: {
+           authorId: NaN
+                     ~~~
+         }
+       })
+
+Argument authorId: Got invalid value NaN on prisma.deleteManyPost. Provided Float, expected IntNullableFilter or Int or Null:
+type IntNullableFilter {
+  equals?: Int | Null
+  in?: List<Int> | Int | Null
+  notIn?: List<Int> | Int | Null
+  lt?: Int
+  lte?: Int
+  gt?: Int
+  gte?: Int
+  not?: Int | NestedIntNullableFilter | Null
+}
+
+
+2023-05-29 19:38:49:3849 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 19:38:50:3850 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 19:40:11:4011 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 19:40:11:4011 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 19:41:22:4122 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 19:41:23:4123 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 19:43:40:4340 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 19:43:40:4340 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 19:53:43:5343 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 19:53:44:5344 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 19:53:44:5344 [error]: [DELETE] /api/v1/user/45  >> StatusCode:: 500, Message:: 
+Invalid `prisma.user.delete()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:92:49
+
+  89     authorId: id,
+  90   },
+  91 });
+→ 92 const deletedUser = await prisma.user.delete(
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+2023-05-29 19:54:04:544 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 19:54:04:544 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 19:54:04:544 [error]: [POST] /api/v1/user/admin  >> StatusCode:: 500, Message:: 
+Invalid `prisma.user.create()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:65:24
+
+  62 const salt = await bcrypt.genSalt(10);
+  63 const hashedPassword = await bcrypt.hash(password, salt);
+  64 
+→ 65 return prisma.user.create(
+Unique constraint failed on the fields: (`email`)
+2023-05-29 19:54:04:544 [error]: [DELETE] /api/v1/user/48  >> StatusCode:: 500, Message:: 
+Invalid `prisma.user.delete()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:92:49
+
+  89     authorId: id,
+  90   },
+  91 });
+→ 92 const deletedUser = await prisma.user.delete(
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+2023-05-29 19:55:24:5524 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 19:55:24:5524 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 19:55:25:5525 [error]: [DELETE] /api/v1/user/51  >> StatusCode:: 500, Message:: 
+Invalid `prisma.user.delete()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:92:49
+
+  89     authorId: id,
+  90   },
+  91 });
+→ 92 const deletedUser = await prisma.user.delete(
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+2023-05-29 19:55:25:5525 [error]: [DELETE] /api/v1/user/undefined  >> StatusCode:: 500, Message:: 
+Invalid `prisma.post.deleteMany()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:87:23
+
+  84 
+  85 public deleteUser = async (id: number): Promise<User | null> => {
+  86   // Delete associated posts
+→ 87   await prisma.post.deleteMany({
+         where: {
+           authorId: NaN
+                     ~~~
+         }
+       })
+
+Argument authorId: Got invalid value NaN on prisma.deleteManyPost. Provided Float, expected IntNullableFilter or Int or Null:
+type IntNullableFilter {
+  equals?: Int | Null
+  in?: List<Int> | Int | Null
+  notIn?: List<Int> | Int | Null
+  lt?: Int
+  lte?: Int
+  gt?: Int
+  gte?: Int
+  not?: Int | NestedIntNullableFilter | Null
+}
+
+
+2023-05-29 19:55:54:5554 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 19:55:54:5554 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 19:55:55:5555 [error]: [POST] /api/v1/user/admin  >> StatusCode:: 500, Message:: 
+Invalid `prisma.user.create()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:65:24
+
+  62 const salt = await bcrypt.genSalt(10);
+  63 const hashedPassword = await bcrypt.hash(password, salt);
+  64 
+→ 65 return prisma.user.create(
+Unique constraint failed on the fields: (`email`)
+2023-05-29 19:55:55:5555 [error]: [DELETE] /api/v1/user/undefined  >> StatusCode:: 500, Message:: 
+Invalid `prisma.post.deleteMany()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:87:23
+
+  84 
+  85 public deleteUser = async (id: number): Promise<User | null> => {
+  86   // Delete associated posts
+→ 87   await prisma.post.deleteMany({
+         where: {
+           authorId: NaN
+                     ~~~
+         }
+       })
+
+Argument authorId: Got invalid value NaN on prisma.deleteManyPost. Provided Float, expected IntNullableFilter or Int or Null:
+type IntNullableFilter {
+  equals?: Int | Null
+  in?: List<Int> | Int | Null
+  notIn?: List<Int> | Int | Null
+  lt?: Int
+  lte?: Int
+  gt?: Int
+  gte?: Int
+  not?: Int | NestedIntNullableFilter | Null
+}
+
+
+2023-05-29 19:58:40:5840 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 19:58:41:5841 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 19:58:41:5841 [error]: [DELETE] /api/v1/user/undefined  >> StatusCode:: 500, Message:: 
+Invalid `prisma.post.deleteMany()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:87:23
+
+  84 
+  85 public deleteUser = async (id: number): Promise<User | null> => {
+  86   // Delete associated posts
+→ 87   await prisma.post.deleteMany({
+         where: {
+           authorId: NaN
+                     ~~~
+         }
+       })
+
+Argument authorId: Got invalid value NaN on prisma.deleteManyPost. Provided Float, expected IntNullableFilter or Int or Null:
+type IntNullableFilter {
+  equals?: Int | Null
+  in?: List<Int> | Int | Null
+  notIn?: List<Int> | Int | Null
+  lt?: Int
+  lte?: Int
+  gt?: Int
+  gte?: Int
+  not?: Int | NestedIntNullableFilter | Null
+}
+
+
+2023-05-29 19:59:13:5913 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 19:59:13:5913 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 19:59:13:5913 [error]: [POST] /api/v1/user/admin  >> StatusCode:: 500, Message:: 
+Invalid `prisma.user.create()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:65:24
+
+  62 const salt = await bcrypt.genSalt(10);
+  63 const hashedPassword = await bcrypt.hash(password, salt);
+  64 
+→ 65 return prisma.user.create(
+Unique constraint failed on the fields: (`email`)
+2023-05-29 19:59:14:5914 [error]: [DELETE] /api/v1/user/60  >> StatusCode:: 500, Message:: 
+Invalid `prisma.user.delete()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:92:49
+
+  89     authorId: id,
+  90   },
+  91 });
+→ 92 const deletedUser = await prisma.user.delete(
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+2023-05-29 19:59:14:5914 [error]: [DELETE] /api/v1/user/undefined  >> StatusCode:: 500, Message:: 
+Invalid `prisma.post.deleteMany()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:87:23
+
+  84 
+  85 public deleteUser = async (id: number): Promise<User | null> => {
+  86   // Delete associated posts
+→ 87   await prisma.post.deleteMany({
+         where: {
+           authorId: NaN
+                     ~~~
+         }
+       })
+
+Argument authorId: Got invalid value NaN on prisma.deleteManyPost. Provided Float, expected IntNullableFilter or Int or Null:
+type IntNullableFilter {
+  equals?: Int | Null
+  in?: List<Int> | Int | Null
+  notIn?: List<Int> | Int | Null
+  lt?: Int
+  lte?: Int
+  gt?: Int
+  gte?: Int
+  not?: Int | NestedIntNullableFilter | Null
+}
+
+
+2023-05-29 19:59:40:5940 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 19:59:41:5941 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 19:59:41:5941 [error]: [DELETE] /api/v1/user/63  >> StatusCode:: 500, Message:: 
+Invalid `prisma.user.delete()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:92:49
+
+  89     authorId: id,
+  90   },
+  91 });
+→ 92 const deletedUser = await prisma.user.delete(
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+2023-05-29 19:59:41:5941 [error]: [DELETE] /api/v1/user/undefined  >> StatusCode:: 500, Message:: 
+Invalid `prisma.post.deleteMany()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:87:23
+
+  84 
+  85 public deleteUser = async (id: number): Promise<User | null> => {
+  86   // Delete associated posts
+→ 87   await prisma.post.deleteMany({
+         where: {
+           authorId: NaN
+                     ~~~
+         }
+       })
+
+Argument authorId: Got invalid value NaN on prisma.deleteManyPost. Provided Float, expected IntNullableFilter or Int or Null:
+type IntNullableFilter {
+  equals?: Int | Null
+  in?: List<Int> | Int | Null
+  notIn?: List<Int> | Int | Null
+  lt?: Int
+  lte?: Int
+  gt?: Int
+  gte?: Int
+  not?: Int | NestedIntNullableFilter | Null
+}
+
+
+2023-05-29 20:01:02:12 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:01:02:12 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:01:03:13 [error]: [DELETE] /api/v1/user/66  >> StatusCode:: 500, Message:: 
+Invalid `prisma.user.delete()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:92:49
+
+  89     authorId: id,
+  90   },
+  91 });
+→ 92 const deletedUser = await prisma.user.delete(
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+2023-05-29 20:01:03:13 [error]: [DELETE] /api/v1/user/undefined  >> StatusCode:: 500, Message:: 
+Invalid `prisma.post.deleteMany()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:87:23
+
+  84 
+  85 public deleteUser = async (id: number): Promise<User | null> => {
+  86   // Delete associated posts
+→ 87   await prisma.post.deleteMany({
+         where: {
+           authorId: NaN
+                     ~~~
+         }
+       })
+
+Argument authorId: Got invalid value NaN on prisma.deleteManyPost. Provided Float, expected IntNullableFilter or Int or Null:
+type IntNullableFilter {
+  equals?: Int | Null
+  in?: List<Int> | Int | Null
+  notIn?: List<Int> | Int | Null
+  lt?: Int
+  lte?: Int
+  gt?: Int
+  gte?: Int
+  not?: Int | NestedIntNullableFilter | Null
+}
+
+
+2023-05-29 20:01:41:141 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:01:42:142 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:01:42:142 [error]: [DELETE] /api/v1/user/69  >> StatusCode:: 500, Message:: 
+Invalid `prisma.user.delete()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:92:49
+
+  89     authorId: id,
+  90   },
+  91 });
+→ 92 const deletedUser = await prisma.user.delete(
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+2023-05-29 20:01:42:142 [error]: [DELETE] /api/v1/user/undefined  >> StatusCode:: 500, Message:: 
+Invalid `prisma.post.deleteMany()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:87:23
+
+  84 
+  85 public deleteUser = async (id: number): Promise<User | null> => {
+  86   // Delete associated posts
+→ 87   await prisma.post.deleteMany({
+         where: {
+           authorId: NaN
+                     ~~~
+         }
+       })
+
+Argument authorId: Got invalid value NaN on prisma.deleteManyPost. Provided Float, expected IntNullableFilter or Int or Null:
+type IntNullableFilter {
+  equals?: Int | Null
+  in?: List<Int> | Int | Null
+  notIn?: List<Int> | Int | Null
+  lt?: Int
+  lte?: Int
+  gt?: Int
+  gte?: Int
+  not?: Int | NestedIntNullableFilter | Null
+}
+
+
+2023-05-29 20:03:40:340 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:03:40:340 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:03:41:341 [error]: [DELETE] /api/v1/user/72  >> StatusCode:: 500, Message:: 
+Invalid `prisma.user.delete()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:92:49
+
+  89     authorId: id,
+  90   },
+  91 });
+→ 92 const deletedUser = await prisma.user.delete(
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+2023-05-29 20:04:12:412 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:04:12:412 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:04:13:413 [error]: [DELETE] /api/v1/user/75  >> StatusCode:: 500, Message:: 
+Invalid `prisma.user.delete()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:92:49
+
+  89     authorId: id,
+  90   },
+  91 });
+→ 92 const deletedUser = await prisma.user.delete(
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+2023-05-29 20:06:13:613 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:06:13:613 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:06:14:614 [error]: [DELETE] /api/v1/user/78  >> StatusCode:: 500, Message:: 
+Invalid `prisma.user.delete()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:92:49
+
+  89     authorId: id,
+  90   },
+  91 });
+→ 92 const deletedUser = await prisma.user.delete(
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+2023-05-29 20:07:09:79 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:07:09:79 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:07:10:710 [error]: [DELETE] /api/v1/user/81  >> StatusCode:: 500, Message:: 
+Invalid `prisma.user.delete()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:92:49
+
+  89     authorId: id,
+  90   },
+  91 });
+→ 92 const deletedUser = await prisma.user.delete(
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+2023-05-29 20:14:23:1423 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:14:23:1423 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:14:23:1423 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:14:24:1424 [error]: [DELETE] /api/v1/user/85  >> StatusCode:: 500, Message:: 
+Invalid `prisma.user.delete()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:92:49
+
+  89     authorId: id,
+  90   },
+  91 });
+→ 92 const deletedUser = await prisma.user.delete(
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+2023-05-29 20:15:23:1523 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:15:24:1524 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:15:24:1524 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:15:24:1524 [error]: [PUT] /api/v1/post/90  >> StatusCode:: 500, Message:: Post not found
+2023-05-29 20:15:24:1524 [error]: [GET] /api/v1/post/undefined  >> StatusCode:: 500, Message:: 
+Invalid `prisma.post.findUnique()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\post.service.ts:49:24
+
+  46 };
+  47 
+  48 public findPostById = async (id: number): Promise<Post | null> => {
+→ 49   return prisma.post.findUnique({
+         where: {
+           id: NaN
+               ~~~
+         },
+         include: {
+           author: {
+             select: {
+               name: true
+             }
+           }
+         }
+       })
+
+Argument id: Got invalid value NaN on prisma.findUniquePost. Provided Float, expected Int.
+
+
+2023-05-29 20:15:24:1524 [error]: [DELETE] /api/v1/post/90  >> StatusCode:: 500, Message:: 
+Invalid `prisma.post.delete()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\post.service.ts:97:30
+
+  94 };
+  95 
+  96 public deletePost = async (id: number): Promise<Post | null> => {
+→ 97   return prisma.post.delete(
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+2023-05-29 20:15:24:1524 [error]: [DELETE] /api/v1/user/88  >> StatusCode:: 500, Message:: 
+Invalid `prisma.user.delete()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:92:49
+
+  89     authorId: id,
+  90   },
+  91 });
+→ 92 const deletedUser = await prisma.user.delete(
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+2023-05-29 20:16:29:1629 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:16:30:1630 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:16:30:1630 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:16:30:1630 [error]: [DELETE] /api/v1/user/92  >> StatusCode:: 500, Message:: 
+Invalid `prisma.user.delete()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:92:49
+
+  89     authorId: id,
+  90   },
+  91 });
+→ 92 const deletedUser = await prisma.user.delete(
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+2023-05-29 20:16:30:1630 [error]: [PUT] /api/v1/post/undefined  >> StatusCode:: 500, Message:: 
+Invalid `prisma.post.findUnique()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\post.service.ts:49:24
+
+  46 };
+  47 
+  48 public findPostById = async (id: number): Promise<Post | null> => {
+→ 49   return prisma.post.findUnique({
+         where: {
+           id: NaN
+               ~~~
+         },
+         include: {
+           author: {
+             select: {
+               name: true
+             }
+           }
+         }
+       })
+
+Argument id: Got invalid value NaN on prisma.findUniquePost. Provided Float, expected Int.
+
+
+2023-05-29 20:16:30:1630 [error]: [GET] /api/v1/post/undefined  >> StatusCode:: 500, Message:: 
+Invalid `prisma.post.findUnique()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\post.service.ts:49:24
+
+  46 };
+  47 
+  48 public findPostById = async (id: number): Promise<Post | null> => {
+→ 49   return prisma.post.findUnique({
+         where: {
+           id: NaN
+               ~~~
+         },
+         include: {
+           author: {
+             select: {
+               name: true
+             }
+           }
+         }
+       })
+
+Argument id: Got invalid value NaN on prisma.findUniquePost. Provided Float, expected Int.
+
+
+2023-05-29 20:16:30:1630 [error]: [DELETE] /api/v1/post/undefined  >> StatusCode:: 500, Message:: 
+Invalid `prisma.post.delete()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\post.service.ts:97:30
+
+  94 };
+  95 
+  96 public deletePost = async (id: number): Promise<Post | null> => {
+→ 97   return prisma.post.delete({
+         where: {
+           id: NaN
+               ~~~
+         }
+       })
+
+Argument id: Got invalid value NaN on prisma.deleteOnePost. Provided Float, expected Int.
+
+
+2023-05-29 20:17:57:1757 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:17:57:1757 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:17:58:1758 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:17:58:1758 [error]: [DELETE] /api/v1/user/96  >> StatusCode:: 500, Message:: 
+Invalid `prisma.user.delete()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:92:49
+
+  89     authorId: id,
+  90   },
+  91 });
+→ 92 const deletedUser = await prisma.user.delete(
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+2023-05-29 20:17:58:1758 [error]: [PUT] /api/v1/post/undefined  >> StatusCode:: 500, Message:: 
+Invalid `prisma.post.findUnique()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\post.service.ts:49:24
+
+  46 };
+  47 
+  48 public findPostById = async (id: number): Promise<Post | null> => {
+→ 49   return prisma.post.findUnique({
+         where: {
+           id: NaN
+               ~~~
+         },
+         include: {
+           author: {
+             select: {
+               name: true
+             }
+           }
+         }
+       })
+
+Argument id: Got invalid value NaN on prisma.findUniquePost. Provided Float, expected Int.
+
+
+2023-05-29 20:17:58:1758 [error]: [GET] /api/v1/post/undefined  >> StatusCode:: 500, Message:: 
+Invalid `prisma.post.findUnique()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\post.service.ts:49:24
+
+  46 };
+  47 
+  48 public findPostById = async (id: number): Promise<Post | null> => {
+→ 49   return prisma.post.findUnique({
+         where: {
+           id: NaN
+               ~~~
+         },
+         include: {
+           author: {
+             select: {
+               name: true
+             }
+           }
+         }
+       })
+
+Argument id: Got invalid value NaN on prisma.findUniquePost. Provided Float, expected Int.
+
+
+2023-05-29 20:17:58:1758 [error]: [DELETE] /api/v1/post/undefined  >> StatusCode:: 500, Message:: 
+Invalid `prisma.post.delete()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\post.service.ts:97:30
+
+  94 };
+  95 
+  96 public deletePost = async (id: number): Promise<Post | null> => {
+→ 97   return prisma.post.delete({
+         where: {
+           id: NaN
+               ~~~
+         }
+       })
+
+Argument id: Got invalid value NaN on prisma.deleteOnePost. Provided Float, expected Int.
+
+
+2023-05-29 20:18:59:1859 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:18:59:1859 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:18:59:1859 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:19:00:190 [error]: [DELETE] /api/v1/user/100  >> StatusCode:: 500, Message:: 
+Invalid `prisma.user.delete()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:92:49
+
+  89     authorId: id,
+  90   },
+  91 });
+→ 92 const deletedUser = await prisma.user.delete(
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+2023-05-29 20:19:33:1933 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:19:34:1934 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:19:34:1934 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:19:34:1934 [error]: [DELETE] /api/v1/user/104  >> StatusCode:: 500, Message:: 
+Invalid `prisma.user.delete()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:92:49
+
+  89     authorId: id,
+  90   },
+  91 });
+→ 92 const deletedUser = await prisma.user.delete(
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+2023-05-29 20:20:43:2043 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:20:43:2043 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:20:44:2044 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:20:44:2044 [error]: [DELETE] /api/v1/user/108  >> StatusCode:: 500, Message:: 
+Invalid `prisma.user.delete()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:92:49
+
+  89     authorId: id,
+  90   },
+  91 });
+→ 92 const deletedUser = await prisma.user.delete(
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+2023-05-29 20:22:45:2245 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:22:45:2245 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:22:45:2245 [error]: [POST] /api/v1/user/login  >> StatusCode:: 500, Message:: Cannot set headers after they are sent to the client
+2023-05-29 20:22:46:2246 [error]: [DELETE] /api/v1/user/113  >> StatusCode:: 500, Message:: 
+Invalid `prisma.user.delete()` invocation in
+C:\Users\dfg\Desktop\node-express-typescript-oop-main\backend\src\services\user.service.ts:92:49
+
+  89     authorId: id,
+  90   },
+  91 });
+→ 92 const deletedUser = await prisma.user.delete(
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
