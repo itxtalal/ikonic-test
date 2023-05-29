@@ -6,6 +6,8 @@
     "dev:frontend": "cd frontend && npm run dev",
     "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
     "install:all": "cd backend && npm install && cd ../frontend && npm install",
-    "test": "cd backend && npm test"
+    "test": "cd backend && npm test",
+    "prisma:migrate": "cd backend && npx prisma migrate dev --name init",
+    "prisma:studio": "cd backend && npx prisma studio"
   }
 }

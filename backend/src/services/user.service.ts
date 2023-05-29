@@ -12,6 +12,14 @@ export default class UserService {
 
     userData.password = hashedPassword;
 
+    // check if there are no users
+
+    const users = await prisma.user.findMany();
+
+    if (users.length === 0) {
+      userData.role = 'admin';
+    }
+
     const user = await prisma.user.create({
       data: userData,
     });

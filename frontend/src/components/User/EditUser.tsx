@@ -13,6 +13,7 @@ const EditUser = ({
 }) => {
   const [name, setName] = useState(user?.name)
   const [email, setEmail] = useState(user.email)
+  const [password, setPassword] = useState('')
   const [role, setRole] = useState(user.role)
 
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -23,7 +24,8 @@ const EditUser = ({
       {
         name,
         email,
-        role
+        role,
+        password
       },
       {
         headers: {
@@ -64,16 +66,29 @@ const EditUser = ({
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <label htmlFor="role">Role</label>
-        <select
-          id="role"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
-          value={role}
-          onChange={(e) => setRole(e.target.value as 'admin' | 'user')}
-        >
-          <option value="admin">Admin</option>
-          <option value="user">User</option>
-        </select>
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
+        {user.role === 'admin' ? (
+          <>
+            <label htmlFor="role">Role</label>
+            <select
+              id="role"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+              value={role}
+              onChange={(e) => setRole(e.target.value as 'admin' | 'user')}
+            >
+              <option value="admin">Admin</option>
+              <option value="user">User</option>
+            </select>
+          </>
+        ) : null}
 
         <button className="text-lg font-light bg-primary-500 text-white px-4 py-2 rounded-lg">
           Save
