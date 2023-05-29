@@ -1,9 +1,7 @@
 import { existsSync, mkdirSync } from 'fs';
-import { join } from 'path';
 import winston from 'winston';
-import { LOG_DIR } from '../config';
 
-const dir: string = join(__dirname, LOG_DIR!);
+const dir: string = __dirname;
 
 if (!existsSync(dir)) {
   mkdirSync(dir);
