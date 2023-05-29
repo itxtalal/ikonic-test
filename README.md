@@ -92,6 +92,10 @@ To run tests, run the following command
 **Database:** PostgreSQL in a Docker Container
 
 
-## Deployment
+## Key points of the App
 
-I could have deployed both backend and frontend on Vercel using free tier. But using PostgreSQL for free was not feasible anywhere. That is why the project was not deployed.
+- If there are no users in the database, the first user created through the signup process will be assigned the role of an admin by default.
+- After signing up, you will be redirected to the home page where your user role will be displayed in the header.
+- As an admin, you have the ability to perform various actions such as creating posts and users, updating posts and users, and deleting posts and users.
+- You can view posts categorized as published, unpublished, or all posts in the database as an admin.
+- As a regular user, you have limited privileges. You can create your own posts, edit and delete them, and update your profile by changing your email, password, and name.
