@@ -16,15 +16,6 @@ const UserDetailsPage = () => {
 
   checkAuthToken()
 
-  const navigate = useNavigate()
-
-  useEffect(() => {
-    const token = localStorage.getItem('token')
-    if (!token) {
-      navigate('/login')
-    }
-  }, [navigate])
-
   const getUserPosts = async () => {
     const res = await axios.get('/post/user/' + id, {
       headers: {

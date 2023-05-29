@@ -2,10 +2,12 @@ import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../redux/hooks'
 import { updateUser, userSelector } from '../redux/slices/userSlice'
 import axios from '../config/axios'
+import { useNavigate } from 'react-router-dom'
 
 const checkAuthToken = () => {
   const dispatch = useAppDispatch()
   const user = useAppSelector(userSelector)
+  const navigate = useNavigate()
 
   const fetchUserData = async (token: string) => {
     try {
@@ -24,6 +26,8 @@ const checkAuthToken = () => {
         dispatch(updateUser(user))
       }
     } catch (error) {
+      localStorage.removeItem('token')
+      navigate('/login')
       console.log(error)
     }
   }
@@ -33,7 +37,11 @@ const checkAuthToken = () => {
     if (token && user.id === '') {
       fetchUserData(token)
     }
-  }, [dispatch])
+
+    if (!token) {
+      navigate('/login')
+    }
+  }, [])
 
   return null
 }

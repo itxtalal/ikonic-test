@@ -57,16 +57,27 @@ const Users = () => {
     }
   }, [filter])
 
-  // useEffect(() => {
-  //   if (debouncedValue) {
-  //     const filteredUsers2 = filteredUsers.filter((user: any) =>
-  //       user.email.toLowerCase().includes(debouncedValue.toLowerCase())
-  //     )
-  //     setFilteredUsers(() => filteredUsers2)
-  //   } else {
-  //     setFilteredUsers(() => users)
-  //   }
-  // }, [debouncedValue])
+  useEffect(() => {
+    let filteredUsersCopy = users
+
+    if (filter === 'admin') {
+      filteredUsersCopy = filteredUsersCopy.filter(
+        (user: any) => user.role === 'admin'
+      )
+    } else if (filter === 'user') {
+      filteredUsersCopy = filteredUsersCopy.filter(
+        (user: any) => user.role === 'user'
+      )
+    }
+
+    if (debouncedValue) {
+      filteredUsersCopy = filteredUsersCopy.filter((user: any) =>
+        user.email.toLowerCase().includes(debouncedValue.toLowerCase())
+      )
+    }
+
+    setFilteredUsers(filteredUsersCopy)
+  }, [filter, debouncedValue, users])
 
   return (
     <div className="">
@@ -118,7 +129,7 @@ const Users = () => {
               type="search"
               id="default-search"
               className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary-500 focus:border-primary-500 "
-              placeholder="Search Users..."
+              placeholder="Search Users by Email || Debounced Effect"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />

@@ -28,6 +28,7 @@ const CreatePost = () => {
 
     if (res.status === 201) {
       console.log('Post created successfully')
+      navigate(`/post/${res.data.post.id}`)
     }
 
     console.log(res)

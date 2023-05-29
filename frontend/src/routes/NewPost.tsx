@@ -1,6 +1,3 @@
-import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import Header from '../layout/Header'
 import { useAppSelector } from '../redux/hooks'
 import { userSelector } from '../redux/slices/userSlice'
 import checkAuthToken from '../hooks/checkAuth'
@@ -12,14 +9,7 @@ const NewPost = () => {
 
   checkAuthToken()
 
-  const navigate = useNavigate()
-
-  useEffect(() => {
-    const token = localStorage.getItem('token')
-    if (!token) {
-      navigate('/login')
-    }
-  }, [navigate])
+  if (user.id === '') return <div>Loading...</div>
 
   return (
     <Layout>

@@ -13,15 +13,12 @@ const NewUser = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    const token = localStorage.getItem('token')
-    if (!token) {
-      navigate('/login')
-    }
-
     if (user.role !== 'admin') {
       navigate('/')
     }
-  }, [navigate])
+  }, [])
+
+  if (user.id === '') return <div>Loading...</div>
 
   return (
     <Layout>

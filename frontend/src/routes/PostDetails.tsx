@@ -20,13 +20,6 @@ const PostDetails = () => {
 
   const navigate = useNavigate()
 
-  useEffect(() => {
-    const token = localStorage.getItem('token')
-    if (!token) {
-      navigate('/login')
-    }
-  }, [navigate])
-
   const getPost = async () => {
     const res = await axios.get('/post/' + id, {
       headers: {
@@ -59,6 +52,8 @@ const PostDetails = () => {
       console.log(error)
     }
   }
+
+  if (user.id === '') return <div>Loading...</div>
 
   return (
     <Layout>

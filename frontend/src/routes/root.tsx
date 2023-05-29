@@ -15,15 +15,6 @@ const Home = () => {
 
   checkAuthToken()
 
-  const navigate = useNavigate()
-
-  useEffect(() => {
-    const token = localStorage.getItem('token')
-    if (!token) {
-      navigate('/login')
-    }
-  }, [navigate])
-
   if (user.id === '') return <div>Loading...</div>
 
   return (
